@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+		<!--导入css-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		
+			  
+		<!--导入jquery-->
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		
+		<!--导入bootstrap-->
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+		
+	</head>
+		<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li><a href="../matlab/matlab_index.html">MATLAB</a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li class="active"><a href="#">bootstrap</a><span class="sr-only">(current)</span></li>
+							  <li><a href="../python/python.html">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+	<body>
+		<h1>Bootstrap代码及其展示效果</h1>
+		
+		<h3>1.btn类显示按钮的效果</h3>
+<pre>
+	&lt;h1 class="btn btn-success"&gt;Hello World&lt;/h1&gt;
+</pre>
+		
+		<h1 class="btn btn-success">Hello World</h1>
+		<hr />
+			
+		<h3>2.Tabs结构</h3>
+<pre>
+	&lt;ul class="nav nav-tabs"&gt;
+		&lt;li class="active"&gt;&lt;a href="#tab1" data-toggle="tab"&gt;Tabs1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab2" data-toggle="tab"&gt;Tabs2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab3" data-toggle="tab"&gt;Tabs3&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab4" data-toggle="tab"&gt;Tabs4&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class="tab-content"&gt;
+		&lt;div class="tab-pane active" id="tab1"&gt;kkq1&lt;/div&gt;
+		&lt;div class="tab-pane" id="tab2"&gt;kkq2&lt;/div&gt;
+		&lt;div class="tab-pane" id="tab3"&gt;kkq3&lt;/div&gt;
+		&lt;div class="tab-pane" id="tab4"&gt;kkq4&lt;/div&gt;
+	&lt;/div&gt;
+</pre>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">Tabs1</a></li>
+			<li><a href="#tab2" data-toggle="tab">Tabs2</a></li>
+			<li><a href="#tab3" data-toggle="tab">Tabs3</a></li>
+			<li><a href="#tab4" data-toggle="tab">Tabs4</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">kkq1</div>
+			<div class="tab-pane" id="tab2">kkq2</div>
+			<div class="tab-pane" id="tab3">kkq3</div>
+			<div class="tab-pane" id="tab4">kkq4</div>
+		</div>
+	
+		<hr />
+		
+		<h3>3.布局系统</h3>
+<pre>
+&lt;div class="container-fluid"&gt;
+	&lt;div class="jumbotron"&gt;
+		&lt;h1&gt;联想控股&lt;/h1&gt;
+		&lt;p&gt;&lt;img src="#"&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;a href="#"&gt;更多&raquo;&lt;/a&gt;&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-lg-4"&gt;
+		&lt;h2&gt;公司专题&lt;/h2&gt;
+		&lt;p&gt;2012年12月2日，联想之星创业大讲堂在常州举行&lt;/p&gt;
+		&lt;p&gt;&lt;a href="#"&gt;更多&raquo;&lt;/a&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;div class="col-lg-4"&gt;
+		&lt;h2&gt;特别关注&lt;/h2&gt;
+		&lt;p&gt;从“靠”卖电脑起家，在旗下IT,房地产，消费与现代服务，化工新材料。现代农业&lt;/p&gt;
+		&lt;p&gt;&lt;a href="#"&gt;更多&raquo;&lt;/a&gt;&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class="col-lg-4"&gt;
+		&lt;h2&gt;我们的历史&lt;/h2&gt;
+		&lt;p&gt;2012年12月2日，联想之星创业大讲堂在常州举行&lt;/p&gt;
+		&lt;p&gt;&lt;a href="#"&gt;更多&raquo;&lt;/a&gt;&lt;/p&gt;
+	&lt;/div&gt;
+			
+	&lt;/div&gt;
+			
+	&lt;footer&gt;
+		&lt;p&gt;&copy;Company 2013&lt;/p&gt;
+	&lt;/footer&gt;
+&lt;/div&gt;			
+</pre>
+		<div class="container-fluid">
+			<div class="jumbotron">
+				<h1>联想控股</h1>
+				<p><img src="#"></p>
+				<p><a href="#">更多&raquo;</a></p>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<h2>公司专题</h2>
+					<p>2012年12月2日，联想之星创业大讲堂在常州举行</p>
+					<p><a href="#">更多&raquo;</a></p>
+				</div>
+				<div class="col-lg-4">
+					<h2>特别关注</h2>
+					<p>从“靠”卖电脑起家，在旗下IT,房地产，消费与现代服务，化工新材料。现代农业</p>
+					<p><a href="#">更多&raquo;</a></p>
+				</div>
+				<div class="col-lg-4">
+					<h2>我们的历史</h2>
+					<p>2012年12月2日，联想之星创业大讲堂在常州举行</p>
+					<p><a href="#">更多&raquo;</a></p>
+				</div>
+			
+			</div>
+			
+			<footer>
+				<p>&copy;Company 2013</p>
+			</footer>
+		</div>
+		
+	</body>
+</html>

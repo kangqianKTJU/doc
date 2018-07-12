@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+		<!--导入css-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		
+			  
+		<!--导入jquery-->
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		
+		<!--导入bootstrap-->
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
+	</head>
+	<body>
+		<div class="container-fluid row">
+				<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="../matlab/matlab_index.html">MATLAB<span class="sr-only">(current)</span></a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li><a href="../abaqus/abaqus_index.html">Abaqus</a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="#">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+				</nav>
+				</div>
+			
+		<div >
+			<div class="col-lg-1 btn btn-default">
+				<a href="python.html" >爬虫简介</a><br />
+				<a href="urilib.html" >Urilib库讲解</a><br />
+				<a href="urilib.html" >socket库讲解</a><br />
+			
+			</div>
+			
+			<div class="col-lg-11">
+			<div >
+			<h3 class="label label-info">socket:</h3><br/><br />
+			<p >该模块提供对BSD套接字接口的访问。它适用于所有现代Unix系统，Windows，MacOS以及其他可能的平台。</p>
+			<p>
+				Python接口是Unix系统调用的直译，翻译成python面向对象式的套接字接口库：<code>socket（）</code>函数返回一个套接字对象，
+				其方法可以实现各种套接字系统调用。 参数类型比C接口更高级：与Python文件操作中的<code>read（）</code>和
+				<code>write（）</code>函数一样，接收操作上的缓冲区分配是自动的，缓冲区长度隐含在发送操作上。
+			</p>
+			<hr />
+			</div>
+			
+			<div >
+				<h3 class="label label-info">socket族</h3><br /><br />
+				<p>基于不同的系统和构建选项，此模块提供不同的套接字族。</p>
+				<p>根据创建套接字对象时指定的地址系列，自动选择特定套接字对象所需的地址格式。 套接字地址表示如下：</p>
+				<ul>
+					<li><code>AF_UNIX:</code> Unix中同一台机器进程间通信协议</li>
+					<li><code>AF_INET: </code>IPv4协议</li>
+					<li><code>AF_INET6:</code>IPv6协议</li>
+					<li><code>AF_NETLINK: </code>内核态和用户态进程之间进行数据传输的特殊的IPC</li>
+					<li><code>AF_CAN: </code>CAN总线</li>
+					<li><code>AF_TIPC:</code>TIPC协议</li>
+					<li><code>AF_BLUETOOTH:</code>蓝牙协议</li>
+					<li><code>AF_ALG: </code>基于Linux的基于套接字的内核加密接口</li>
+					<li><code>AF_VSOCK: </code>虚拟机与主机通讯</li>	
+				</ul>
+			</div>
+			
+			<div >
+				<h3 class="label label-info">常量</h3><br /><br />
+				<p>基于不同的系统和构建选项，此模块提供不同的套接字族。</p>
+				<p>根据创建套接字对象时指定的地址系列，自动选择特定套接字对象所需的地址格式。 套接字地址表示如下：</p>
+				<ul>
+					<li><code>socket.AF_UNIX</code></li>
+					<li><code>socket.AF_INET</code></li>
+					<li><code>socket.AF_INET6</code></li>
+					<li><code>socket.SOCK_STREAM </code></li>
+					<li><code>socket.SOCK_DGRAM </code></li>
+					<li><code>socket.SOCK_RAW</code></li>
+					<li><code>socket.has_ipv6</code></li>
+					<li><code>...</code></li>
+					
+				</ul>
+			</div>
+			
+			<div >
+				<h3 class="label label-info">方法</h3><br /><br />
+				<code>socket.Socket(family=AF_INET, type=SOCK_STREAM, proto=0, fileno=None)</code>
+				<p>创建新套接字：传入协议族、套接字类型、协议号；也可以从文件读取。默认的协议是IPV4协议，
+					默认的套接字类型是SOCK_STREAM,协议号一般是0。如果<i> fileno </i>指定了,协议族、类型、协议号会
+					从指定的文件描述符中检测出来。	
+				</p>
+	<pre>	import socket
+	s = socket.socket()
+	s
+	&lt;socket.socket fd=492, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0&gt;</pre>
+	
+				<code>socket.socketpair([family[, type[, proto]]])</code>
+				<p>使用给定的地址族、类型和协议号，构建一对连接的套接字对象。 地址族，套接字类型和协议号与上面的
+					socket（）函数相同。 如果在平台上定义，则默认系列为AF_UNIX; 否则，默认为AF_INET。
+				</p>
+	<pre>	import socket
+	s = socket.socketpair()
+	s
+	(&lt;socket.socket fd=468, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8848), raddr=('127.0.0.1', 8849)&gt;,
+	 &lt;socket.socket fd=488, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8849), raddr=('127.0.0.1', 8848)&gt;)</pre>
+			
+				<code>socket.create_connection(address[, timeout[, source_address]])</code>
+				<p>连接到侦听Internet地址（2元组（主机，端口））的TCP服务，并返回套接字对象。这是一个比<code>socket.connect（）</code>更高级的函数：
+					如果host是非数字主机名，它将尝试为<code>AF_INET</code>和<code>AF_INET6</code>解析它，然后尝试依次连接到所有可能的地址，直到连接成功。这样可以轻松编写与IPv4和IPv6兼容的客户端。
+				</p>
+				<p>
+					如果传递可选的timeout参数,那么将在尝试连接之前设置套接字实例上的超时。 如果未提供超时，则使用getdefaulttimeout（）返回的全局默认超时设置。
+				</p>
+				<P>
+					如果有source_address的话，则必须是要连接的套接字的2元组（主机，端口）作为其源地址才能连接。 如果主机或端口分别为''或0，则将使用OS默认行为。
+				</P>
+
+				
+			
+		</div>			
+		
+		</div>
+	</div>
+</div>			
+		
+		
+
+	</body>
+</html>

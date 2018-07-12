@@ -1,0 +1,75 @@
+
+#span1 a{
+    color:red;
+    font-size: 30px;
+
+}
+#span2 a{
+    color:blueviolet;
+    font-size: 30px;
+}
+
+
+
+}
+
+
+#cle{
+    clear: both;
+}
+#gameSpan{
+    color: darkorange;
+    text-align: left;
+}
+
+#divTotal{
+    width: 100%;
+    margin: auto;
+    overflow: visible;
+}
+#imgPeiyang{
+    width:500px;
+    padding: 10px;
+    background-color: darkolivegreen;
+    height:300px;
+}
+#welcome{
+    width: 100%;
+    height:30px;
+    margin:10px;
+    text-align: center;
+    padding: 3px;
+    background-color: darkgoldenrod;
+}
+.carousel-inner {
+    width:100%;
+  
+}
+#exp{
+    background-color: royalblue;
+}
+
+#foot{
+	padding: 15px;
+	
+}
+
+#about_us{
+	width:300px;
+}
+
+#weChatImg{
+	width:100%;
+	height:100%;
+}
+p{
+	text-indent:2em;
+}
+
+.title{
+	font-size: x-large;
+}
+pre{
+	background-color: #202020;
+	color: white;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=devide-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no">	
+		<title>孔康骞的小网站</title>
+
+		<link rel="styleSheet" href="../../css/bootstrap.min.css">
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
+
+			
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li><a href="../matlab/matlab_index.html">MATLAB</a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li class="active"><a href="#">Abaqus<span class="sr-only">(current)</span></a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="../python/python.html">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 col-sm:hidden btn btn-default">
+				<a href="#abaqus1">Abaqus简介</a><br/>
+				<a href="#abaqus2">Abaqus接口操作</a><br/>
+				<a href="subModel.html">SubModel技术</a><br/>
+				<a href="example.html">案例</a><br/>
+			</div>
+			<div class="col-lg-10 col-sm-11">
+				<div><code class="title" id="abaqus1">Abaqus简介</code><br/><br />
+					<p>话不多说，Abaqus是一款有限元模拟软件。</p>
+					<h5 class="label label-default">产品示意图如下：</h5><br /><br />
+					<img src="../../img/abaqus/gss-abaqus-mod-v-nls.png" class="center-block img-responsive" ><br /><br />
+					<ul>
+						<li><strong>Abaqus / Standard：</strong><br/>
+							一款通用分析产品，可以解决涉及元件静态，动态，热，电和电磁响应的各种线性和非线性问题。
+						</li>
+						<li><strong>Abaqus / Explicit：</strong><br/>
+							一款特殊用途的分析产品，它使用显式动态有限元公式，适用于模拟短暂的瞬态动态事件，如冲击和爆炸问题，且对于涉及改变接触条件的高度非线性问题（如形成模拟）也非常有效。
+						</li>
+						<li><strong>Abaqus / CFD：</strong><br/>
+							是一种计算流体动力学分析产品。 它可以解决一大类不可压缩的流动问题，包括层流和湍流，热对流流动和变形网格问题。
+						</li>
+						<li><strong>Abaqus / CAEd：</strong><br/>
+							（完整的Abaqus环境）是Abaqus的交互式图形环境。 它允许通过生成或导入要分析的结构的几何形状并将几何体分解成可网格区域来快速且容易地创建模型。 物理和材料属性可以与载荷和边界条件一起分配给几何体。 Abaqus / CAE包含非常强大的选项，可以对几何体进行网格化并验证生成的分析模型。 模型完成后，Abaqus / CAE可以提交，监控和控制分析作业。
+						</li>
+						<li><strong>Abaqus / Viewer</strong><br/>
+							Abaqus / CAE的子集，仅包含Visualization模块的后处理功能。</li>
+					
+					</ul>
+					<h5 class="label label-default">Abaqus接口与CAE：</h5><br /><br />
+					<img src="../../img/abaqus/acl-all-schematic-nls.png" class="center-block"><br /><br />
+					<p>
+						可见，Abaqus最终都会生成<code class="code">*.inp</code>类型的文件，最后提交给求解器进行求解。
+					</p>
+					<p>
+						<strong>GUI接口(图形界面)</strong>、<strong>命令行接口</strong>、<strong>脚本接口</strong>都会生成<code>*.py</code>类型的文件，交由python解释器解释执行。执行的过程
+						Abaqus会以<code class="code">*.rpy</code>类型的文件记录下操作的每一步，其实就是python文件。最后python解释器生成<code>*inp</code>文件，交由求解器求解，求解出的结果写入数据库文件，然后可以通过，Viewers工具可视化结果。
+					</p>
+					
+					</div>
+				
+				<hr />
+				<div><code class="title" id="abaqus2">Abaqus接口操作</code><br/>
+				<ol>
+					<li>对<code class="code">*.inp</code>文件操作：</li>
+					<p>
+						Abaqus中，<code class="code">*.inp</code>文件是作业提交文件，是Abaqus求解器唯一能识别的文件，提交<code class="code">*inp</code>是最快的计算方法。
+						在Abaqus命令行下提交<code class="code">*inp</code>文件的方法如下：
+					
+					<pre> abaqus job = 2DDoubleEdSymmCPE8R_model</pre>	
+					
+					<p/>
+					<p>然后在temp目录下就会得到输出的结果信息文件。</p>
+					<p>Abaqus提供了很多的计算案列，在他的帮助文档里都有详细的介绍，下面是我的帮助例子所在的路径：</p>
+					<pre>C:\SIMULIA\Abaqus\6.14-4\samples\job_archive\samples</pre>
+					<p>	Abaqus提供了在命令行下直接获取案例文件的命令<kbd>fetch</kbd>,通过该命令可以直接将案例文件提取到工作路径下。</p>
+					<pre>abaqus fetch job=2DDoubleEdSymmCPE8R_model.inp    //获取2DDoubleEdSymmCPE8R_model.inp文件</pre>
+						
+					<pre>abaqus fetch job=2DDoubleEdSymmCPE8R_model        //获取名字为2DDoubleEdSymmCPE8R_model相关的文件,不仅仅是inp文件，还可能是py文件、f文件</pre>
+					
+					<li>对<code class="code">*.py</code>文件操作：</li>
+					<p>
+						在命令行下输入：
+						<pre>abaqus cae script = DDoubleEdSymmCPE8R_model.py      //以CAE图形界面打开模型，cae也可以用viewer代替</pre>
+						<pre>abaqus cae noGUI=myscript.py                           //以非图形界面建模 ，cae也可以用viewer代替</pre>
+					</p>
+						
+					<p>python文件另一大好处就是，你可以把它在CAE界面的CLI栏里一条条的输入，这样你就可以了解模型构建的每一步了，这对于学习Abaqus的例子来说比单纯的Cae文件要好多了。</p>
+					<hr />	
+				</ol>	
+				</div>
+				
+			</div>
+			
+		</div>
+		<footer style="text-align: center;"><a href="#">联系我们</a></footer>
+		
+		</div>
+	</body>
+</html>

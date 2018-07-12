@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+		<!--导入css-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		
+			  
+		<!--导入jquery-->
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		
+		<!--导入bootstrap-->
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="container-fluid row">
+				<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="../matlab/matlab_index.html">MATLAB<span class="sr-only">(current)</span></a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li><a href="../abaqus/abaqus_index.html">Abaqus</a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="#">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+				</nav>
+				</div>
+			
+		<div >
+			<div class="col-lg-1 btn btn-default">
+				<a href="python.html" >爬虫简介</a><br />
+				<a href="urilib.html" >Urilib库讲解</a><br />
+				<a href="socket.html" >socket库讲解</a><br />
+			
+			</div>
+			
+			<div class="col-lg-11">
+			<div >
+			<p ><span class="label label-info">爬虫：</span>请求网站并提取数据的自动化程序</p>
+			<p>
+				<ol>
+					<li><strong>发送请求：</strong>通过Http库向目标站点发起请求，随即发送一个Request,请求可以包含额外的Headers等信息，等待服务器相应</li>
+					<li><strong>获取响应内容：</strong>如果服务器响应正常，会返回一个Response,Response的内容便是所要获取的页面内容，类型可能有Html,Json字符串，二进制数据（如图片，视频）等类型</li>
+					<li><strong>解析响应内容：</strong>得到的内容可能是Html,可以用正则表达式、网页解析库进行解析。可能是Json,可以直接转化为Josn对象解析，可能是二进制数据，可以做保存或者进一步处理</li>
+					<li><strong>保存数据：</strong>保存形式多样，可以为文本，可以保存至数据库，或者特定格式的文件</li>
+				</ol>
+			</p>
+			<hr />
+			<div >
+				<h4 class="label label-info">request</h4>
+				<p><strong>request方法:</strong><i>get</i>,<i>post</i>,<i>head</i>,<i>put</i>,<i>delete</i>,<i>options</i></p>
+				<p><strong>URL:</strong>统一资源定位符，用来确定一个特定资源所在的位置</p>
+				<p><strong>请求头:</strong>包含请求的一些头部信息，User-Agent、Host、Cookies等</p>
+				<p><strong>请求体:</strong>请求时额外附带的数据，例如提交的表单数据</p>
+			</div>
+			<hr />
+			<div>
+				<h4 class="label label-info">response</h4>
+				<p><strong>响应状态:</strong>404找不到页面，200访问成功，301跳转，502服务器错误</p>
+				<p><strong>响应头:</strong>如内容的类型，内容长度，服务器消息，设置Cookies等等</p>
+				<p><strong>响应体:</strong>最主要的部分，包含了请求资源的内容，如网页的Http文件，图片等二进制数据</p>
+			</div>
+			<hr />
+			<div>
+				<h3 class="label label-info">代码实例</h3>
+<pre>
+	import requests                                        #导入requsets库
+	response = requests.get('http://172.23.231.61')        #利用get()方法向服务器发起请求
+	print(response.status_code)                            #打印请求的状态码
+	print(response.headers)                                #打印请求头信息
+	print(response.text)                                   #打印请求体内容
+</pre>
+			<img src="../../img/python/example1.JPG">
+			</div>
+			
+		</div>
+			
+		
+			</div>
+			
+		</div>
+		
+		</div>
+	</body>
+</html>

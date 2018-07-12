@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+		<!--导入css-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		
+			  
+		<!--导入jquery-->
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		
+		<!--导入bootstrap-->
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="container-fluid row">
+				<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="../matlab/matlab_index.html">MATLAB<span class="sr-only">(current)</span></a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li><a href="../abaqus/abaqus_index.html">Abaqus</a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="#">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+				</nav>
+				</div>
+			
+		<div >
+			<div class="col-lg-1 btn btn-default">
+				<a href="python.html" >爬虫简介</a><br />
+				<a href="urilib.html" >Urilib库讲解</a><br />
+				<a href="socket.html" >socket库讲解</a><br />
+			
+			</div>
+			
+			<div class="col-lg-11">
+			<div >
+			<p ><span class="label label-info">urilib:</span><br/>python内置的一个HTTP请求库</p>
+			<p>
+				<ul>
+					<li><strong>urilib.request：</strong>请求模块</li>
+					<li><strong>urilib.error：</strong>异常处理模块</li>
+					<li><strong>urilib.parse：</strong>url解析模块</li>
+					<li><strong>urilib.robotparser：</strong>robots.txt解析模块</li>
+				</ul>
+			</p>
+			<hr />
+			<div >
+				<h4 class="label label-info">urlopen( )</h4>
+				<p><strong>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)</strong></p>
+				<p><strong>url:</strong>请求的资源所在的url,<code>必填</code></p>
+				<p><strong>data:</strong>接受默认值，就是get()方法；传递参数就是post()方法</p>
+				<p><strong>timeout:</strong>响应超时设置</p>
+				<p><strong>返回对象的方法:</strong><br/>
+					<code>geturl():重新返回请求的资源地址，常用来查看是否发生了重定向</code><br/>
+					<code>info():返回页面的元信息，例如请求头</code><br/>
+					<code>getcode():返回响应的状态码</code><br/>
+				</p>
+
+<pre>
+	import urllib.request
+	response = urllib.request.urlopen('https://www.baidu.com')
+	response.geturl()
+	response.info()
+	response.getcode()
+</pre>
+				
+				
+				
+				
+				<img src="../../img/python/urlopen.JPG" border="12px solid red">
+			</div>
+			<hr />
+			<div>
+				<h4 class="label label-info">data</h4>
+				<p><strong>响应状态:</strong>404找不到页面，200访问成功，301跳转，502服务器错误</p>
+				<p><strong>响应头:</strong>如内容的类型，内容长度，服务器消息，设置Cookies等等</p>
+				<p><strong>响应体:</strong>最主要的部分，包含了请求资源的内容，如网页的Http文件，图片等二进制数据</p>
+			</div>
+			<hr />
+			<div>
+				<h3 class="label label-info">代码实例</h3>
+<pre>
+	import requests                                        #导入requsets库
+	response = requests.get('http://172.23.231.61')        #利用get()方法向服务器发起请求
+	print(response.status_code)                            #打印请求的状态码
+	print(response.headers)                                #打印请求头信息
+	print(response.text)                                   #打印请求体内容
+</pre>
+			<img >
+			</div>
+			
+		</div>
+			
+		
+			</div>
+			
+		</div>
+		
+		</div>
+	</body>
+</html>

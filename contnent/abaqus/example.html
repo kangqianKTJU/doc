@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=devide-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no">	
+		<title>孔康骞的小网站</title>
+
+		<link rel="styleSheet" href="../../css/bootstrap.min.css">
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
+
+			
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-inverse">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li><a href="../matlab/matlab_index.html">MATLAB</a></li>
+							  <li><a href="#">JAVA</a></li>
+							  <li class="active"><a href="#">Abaqus<span class="sr-only">(current)</span></a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="../python/python.html">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 col-sm:hidden btn btn-default">
+				<a href="abaqus_index.html">Abaqus简介</a><br/>
+				<a href="abaqus_index.html">Abaqus接口操作</a><br/>
+				<a href="subModel.html">SubModel技术</a><br/>
+				<a href="#">案例</a><br/>
+			</div>
+			<div class="col-lg-10 col-sm-11">
+				<div><code class="title" id="abaqus1">三维断裂模型</code><br/><br />
+					<p>本例子是对一个完全三维裂纹模型的环路积分评估的说明，本例子提供了方法的验证（线弹性响应），
+						因为本模型有实际结果可以比较。
+					</p>
+					<P>Abaques提供J积分，应力强度因子（K<sub>I</sub>）,T-应力的值，在三维模型中，该值是是沿着裂纹尖端前沿的位置函数。
+						积分路径可以使用多种，因此，积分应该是与路径无关的，不同路径得出的值的分散性可以作为计算结果质量的度量。Abaqus中
+					计算环路积分时采用的主要积分方法即使在较粗的网格下也能得到准确的结果，就像本例这样。Abaqus基于传统的有限元法或扩展有限元法（XFEM），
+					为断裂力学研究提供了这些参数的评估。</P>
+					
+					<h3>1.问题描述</h3>
+					<p>本例中分析了两个几何体。另外，同时采用了传统的有限单元法和XFEM法（扩展有限单元法）。</p>
+					<h4>（1）半无限大空间中半椭圆裂纹</h4>
+					<P>第一个分析的几何体模型是半空间中的半椭圆形裂纹，如图 1所示。<br /><br/>
+					<img src="../../img/abaqus/Semi-elliptic surface crack in a half-space..png" class="center-block">
+					裂纹以Model 1 型模式加载远场拉力。如果使用传统的有限单元法，由于对称性，只需分析四分之一模型。
+					网格划分如图 2所示 。<br /><br/>
+					<img src="../../img/abaqus/bmk-elliptic-crack-mesh.png" class="center-block">
+					使用的单元是降阶单元（C3D20R)。在裂纹尖端的节点中，该单元的中间节点移动到了靠近裂纹尖端的四分之一处。四分之一节点
+					方法提供了应变奇异性，因此改变了裂纹尖端附近的应变场的模拟。裂纹前沿的法线用来表名裂纹扩展的方向。网格延伸的足够远，
+					使得模型远处表面的边界条件对结果的影响可以忽略不计。围绕裂纹尖端的三组环单元用来计算环路积分。
+					</P>
+					<p>当使用扩展有限单元法时，网格无需与裂纹几何形状进行匹配。特殊功能函数与额外的自由度向结合保证了裂纹的存在。
+					该方法还消除了在评估轮廓积分时明确定义裂纹前沿或指定虚拟裂纹扩展方向的要求。基于单元节点标明的水平集的距离函数，自动
+					获得计算环路积分的数据。该几何体采用的网格是一阶块单元（C3D8），如下左图。裂纹前沿由输出变量PSILSM的水平设定等值线图表示，如下右图所示。
+					</p>
+					<div style='text-align: center;'><img src ="../../img/abaqus/bmk-elliptic-crack-xfem-mesh.png">
+					<img src="../../img/abaqus/bmk-elliptic-crackfront-xfem.png"/></div>
+					
+					<h4>（2）矩形板中的半椭圆形裂纹</h4>
+					<p>分析的第二个几何体是矩形板中的半椭圆形裂纹，如下图所示。该板受到均匀的拉力作用。由于模型的对称性，使用传统的有限单元法时，只需
+					分析四分之一模型即可。相对于板厚t的几何尺寸如下：<strong>半高16；半宽8；中平面裂纹深度0.6；表面裂纹宽度2.5,因此，表面裂纹纵横比为0.24。</strong>
+					使用传统有限单元法的网格划分及剖面图如下所示。该模型中，传统有限单元法使用的是C3D8单元，扩展有限单元法使用的是C3D8和C3D4单元。</p>
+					<div style='text-align: center;'><img src ="../../img/abaqus/bmk-ellipticCrack-meshRectPlate.png">
+					<img src="../../img/abaqus/bmk-ellipticcrrect-meshprofile.png"/></div>
+					
+					<h3>2.建模与编程</h3>
+					<h4>（1）半无限大空间中半椭圆裂纹</h4>
+					<ul>
+						<li>提取<code>3DEllipticCrackC3D20R_model.py </code>
+							<pre>abaqus  fetch job=3DEllipticCrackC3D20R_model.py</pre>
+						</li>
+						
+						<li>运行<code>3DEllipticCrackC3D20R_model.py</code>
+							<pre>abaqus cae noGUI=3DEllipticCrackC3D20R_model.py 		//如果要使用图形界面，请使用 abaqus cae script=3DEllipticCrackC3D20R_model.py </pre>
+						</li>
+						
+						<li>如果是以图形界面打开的话，就在CAE中提交任务，或者提取<code> 3DEllipticCrackC3D20R_job.py</code>然后提交
+							<pre>abaqus cae noGUI=3DEllipticCrackC3D20R_job.py 		//如果要使用图形界面，请使用 abaqus cae script=3DEllipticCrackC3D20R_job.py </pre>
+						</li>
+					</ul>
+					<h4 class="label label-info">获得的结果如下：</h4>
+					<div style='text-align: center;'>
+						<img src="../../img/abaqus/abaqus_cae_noGui.png"/>
+						<img src="../../img/abaqus/result_3DEllipticCrackC3d20R.png"/>
+					</div>
+					<h4 class="label label-info">各文件的说明如下：</h4><br /><br/>
+					<ul>
+						<li><code>.cae</code> 模型文件:记录了模型建立的详细过程。</li>
+						<li><code>.rpy</code> 命令记录文件。</li>
+						<li><code>.dat</code> 数据文件：文本输出信息，记录分析、数据检查、参数检查等信息。ABAQUS/Explicit 的分析结果不会写入这个文件。</li>
+						<li><code>.msg</code> 是计算过程的详悉记录，分析计算中的平衡迭代次数，计算时间， 警告信息，等等可由此文件获得。用STEP模块定义。</li>
+						<li><code>.odb</code> 输出数据库文件，即结果文件，需要由Visuliazation打开。</li>
+						<li><code>.prt</code> 零件信息文件：包含了零件与装配信息,restart时需要。</li>
+						<li><code>.sim</code> 线性动力学数据文件。 它是在基于SIM的线性动力学分析的频率提取过程中编写的并用来存储特征向量，子结构矩阵和其他模态系统信息。 重新启动时需要此文件。</li>
+						<li><code>.sta</code> 状态文件：包含分析过程信息。</li>
+						<li><code>.com</code> 命令文件，由Abaqus执行过程创建。</li>
+						<li><code>.inp</code> 输入文件。由abaqusCommand支持计算起始文件，它也可由CAE打开。</li>
+						<li><code>.jnl</code> 日志文件：包含用于复制已存储模型数据库的ABAQUS/CAE命令。</li>
+						
+					</ul>
+					
+					<h4 class="label label-info">建模详解</h4><br /><br />
+					<p>打开提取的<code>3DEllipticCrackC3D20R_model.py</code>文件，分析建模的过程。</p>
+					<p class="label label-warning">注意：该文件是提取的！！！是abaqus案例里提供的，不是自己写出来的。这里只是基于对它的分析，然后在GUI中实现而已。</p><br /><br />
+					<div class="row">
+						<div class="col-lg-6 col-xs-12">
+							<pre>'''
+-----------------------------------------------------------------------------
+ Three dimensional model of an elliptic crack in a half space modeled
+ using reduced integration elements (C3D20R).
+-----------------------------------------------------------------------------
+'''
+	
+from abaqus import *
+import testUtils
+testUtils.setBackwardCompatibility()
+from abaqusConstants import *
+	
+import part, material, section, assembly, step, interaction
+import regionToolset, displayGroupMdbToolset as dgm, mesh, load, job
+import inpReader</pre>
+
+<pre>#----------------------------------------------------------------------------
+
+# Create a model
+
+Mdb()
+modelName = '3DEllipticCrackC3D20R'
+myModel = mdb.Model(name=modelName)
+    
+# Create a new viewport in which to display the model
+# and the results of the analysis.
+
+myViewport = session.Viewport(name=modelName)
+myViewport.makeCurrent()
+myViewport.maximize()
+    
+#---------------------------------------------------------------------------</pre>
+
+<pre># Create a part
+
+# Create a sketch for the base feature
+
+mySketch = myModel.Sketch(name='barProfile',sheetSize=200.0)
+mySketch.sketchOptions.setValues(viewStyle=REGULAR)
+mySketch.setPrimaryObject(option=STANDALONE)
+
+mySketch.Line(point1=(0.0, 0.0), point2=(100.0, 0.0))
+mySketch.Line(point1=(0.0, 0.0), point2=(0.0, -100.0))
+mySketch.ArcByCenterEnds(center=(0.0, 0.0), point1=(100.0, 0.0),
+    point2=(0.0, -100.0), direction=CLOCKWISE)
+myBar = myModel.Part(name='Bar', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+myBar.BaseSolidExtrude(sketch=mySketch, depth=50.0)
+mySketch.unsetPrimaryObject()
+myViewport.setValues(displayedObject=myBar)
+del myModel.sketches['barProfile']
+</pre>
+
+<pre># Create a partition for the cracks 
+
+face1 = myBar.faces.findAt((16,-10,50),)
+edge1 = myBar.edges.findAt((0,-56.5,50),)
+t = myBar.MakeSketchTransform(sketchPlane=face1, sketchUpEdge=edge1,
+    sketchPlaneSide=SIDE1, sketchOrientation=LEFT, 
+    origin=(42.441318, -42.441318, 50.0))
+mySketch = myModel.Sketch(name='barProfile', 
+    sheetSize=300.0, gridSpacing=7.5, transform=t)
+g = mySketch.geometry
+mySketch.setPrimaryObject(option=SUPERIMPOSE)
+myBar.projectReferencesOntoSketch(sketch=mySketch, filter=COPLANAR_EDGES)
+mySketch.sketchOptions.setValues(gridOrigin=(-42.441318, 42.441318))
+mySketch.EllipseByCenterPerimeter(center=(-42.441318, 42.441318),
+    axisPoint1=(-17.441318, 42.441318), axisPoint2=(-42.441318, 32.441318))
+mySketch.autoTrimCurve(curve=g[3], parameter1=0.737435400485992)
+f = myBar.faces
+pickedFaces = f[face1.index:(face1.index+1)]
+myBar.PartitionFaceBySketch(sketchUpEdge=edge1, faces=pickedFaces,
+    sketchOrientation=LEFT, sketch=mySketch)
+mySketch.unsetPrimaryObject()
+del myModel.sketches['barProfile']
+</pre>
+
+<pre># Create a shell tube for the inner partition (around the crack tip)
+
+# First create the sweep path
+
+mySketch1 = myModel.Sketch(name='sweepPath', sheetSize=200.0)
+g1 = mySketch1.geometry
+mySketch1.setPrimaryObject(option=STANDALONE)
+mySketch1.EllipseByCenterPerimeter(center=(0.0, 0.0),
+    axisPoint1=(25.0, 0.0), axisPoint2=(0.0, -10.0))
+mySketch1.Line(point1=(0.0, 0.0), point2=(30.0, 0.0))
+mySketch1.Line(point1=(0.0, 0.0), point2=(0.0, 23.4493026733398))
+mySketch1.autoTrimCurve(curve=g1[3], parameter1=0.570547997951508)
+mySketch1.delete(objectList=(g1[5], g1[7]))
+mySketch1.unsetPrimaryObject()
+
+# Create a circle and sweep it along the curve created above
+
+mySketch2 = myModel.Sketch(name='innerCircleProfile', sheetSize=200.0, 
+    transform=(-1.0, 6.12303176911188e-16, 0.0, 0.0, 0.0, 1.0, 
+    6.12303176911188e-16, 1.0, 0.0, 25.0, -2.44921270764475e-15, 0.0))
+g2 = mySketch2.geometry
+mySketch2.setPrimaryObject(option=SUPERIMPOSE)
+mySketch2.ObliqueConstructionLine(point1=(-94.28, 0.0),
+    point2=(94.28, 0.0))
+mySketch2.ObliqueConstructionLine(point1=(0.0, -94.28),
+    point2=(0.0, 94.28))
+mySketch2.CircleByCenterPerimeter(center=(0.0, 0.0),
+    point1=(1.0, 0.0))
+myInnerTube = myModel.Part(name='InnerPartition',
+    dimensionality=THREE_D, type=DEFORMABLE_BODY)
+myInnerTube.BaseShellSweep(sketch=mySketch2, path=mySketch1)
+mySketch2.unsetPrimaryObject()
+myViewport.setValues(displayedObject=myInnerTube)
+del myModel.sketches['innerCircleProfile']</pre>
+
+						</div>
+						<div class="col-lg-6 col-xs-12">
+							<br/><br/>
+							<div>
+							<p><blockquote>#&nbsp;&nbsp;使用C3D20R单元的半空间半椭圆3维模型</blockquote></p><br /><br /><br />
+							<p><blockquote>#&nbsp;&nbsp;导入所需的一些模块，模块里包含了操作cae文件的接口</blockquote></p><br /><br /><br />
+							</div>
+							
+							<div>
+							<p><blockquote>#&nbsp;&nbsp;创建模型（Model）</blockquote></p>
+							<p><blockquote>#&nbsp;&nbsp;调用Mdb( )函数，初始化建模<br/>
+								#&nbsp;&nbsp;modelName：模型的名字<br/>
+								#&nbsp;&nbsp;建立模型数据库，传入模型名字，数据库的引用为变量myModel
+							</blockquote></p>	
+							<p><blockquote>#&nbsp;&nbsp;创建视图展示该模型<br/>
+								#&nbsp;&nbsp;使视图在当前显示<br/>
+								#&nbsp;&nbsp;使视图窗口最大化
+							</blockquote></p><br />
+							</div>
+							
+							<div>
+							<p><blockquote>#&nbsp;&nbsp;创建部件(part)
+								#&nbsp;&nbsp;给基特征创建草图<br/>
+								#&nbsp;&nbsp;myModel 的草图，name为barProfile，草图板大小200
+							</blockquote></p><br />
+							<p><blockquote>#&nbsp;&nbsp;在草图上画两条线：（0,0）到（100,0）、（0,0）到（-100,0）<br/>
+								#&nbsp;&nbsp;在草图上画半圆，圆心为（0,0），起始点坐标为（100,0），终点坐标为(-100,0)<br/>
+								#&nbsp;&nbsp;myModel 的草图，name为barProfile，草图板大小200，<br />
+								#&nbsp;&nbsp;模型空间：3D,deformable  ；基特征:solid，拉伸<br />
+								#&nbsp;&nbsp;拉伸长度为50<br />
+								#&nbsp;&nbsp;展示模型，删除草图
+							</blockquote></p>
+							</div>
+							
+							<div>
+							<p><blockquote>#&nbsp;&nbsp;为裂纹创建一个分区(partion)<br />
+								#&nbsp;&nbsp;找到（16，-10,50）点所在的平面和（0，-56.5,50）所在的线，在该平面上作图，展示方向为该线竖直居左<br/>
+								#&nbsp;&nbsp;草图中心点坐标<br />
+								#&nbsp;&nbsp;草图名称<br />
+							</blockquote></p><br /><br />
+							<p><blockquote>#&nbsp;&nbsp;在草图上画半椭圆，通过3点确定一个椭圆<br/>
+								#&nbsp;&nbsp;椭圆中心坐标：（-42.441318, 42.441318）即草图原点坐标<br />
+								#&nbsp;&nbsp;另两个轴所在坐标：<br />
+								axisPoint1=(-17.441318, 42.441318), <br />
+								axisPoint2=(-42.441318, 32.441318))
+								
+							</blockquote></p>
+							</div><br /><br />
+							
+							<div>
+							<p><blockquote>#&nbsp;&nbsp;为内部分区创建一个壳状管（在裂纹尖端附近）</blockquote><br />
+							</p>	
+							<p><blockquote>#&nbsp;&nbsp;建立一个名为sweepPath的草图<br />
+								#&nbsp;&nbsp;在草图上画一个椭圆：中心（0,0），两个轴点为（25,0）和（0，-10）<br />
+								#&nbsp;&nbsp;画两条线(0.0, 0.0)到(30.0, 0.0)和(0.0, 0.0)到(0.0, 23.4493026733398)
+							</blockquote><br />
+							</p>
+							
+							</div>
+							
+
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		<footer style="text-align: center;"><a href="#&nbsp;&nbsp;">联系我们</a></footer>
+		
+		</div>
+	</body>
+</html>
