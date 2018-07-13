@@ -16,7 +16,7 @@
 	<body>
 		<div class="container-fluid">
 		<div class="row">
-			<nav class="navbar navbar-default navbar-inverse">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 						<div class="container-fluid">
 						  <!-- Brand and toggle get grouped for better mobile display -->
 						  <div class="navbar-header">
@@ -63,13 +63,15 @@
 			</nav>
 		</div>
 		<div class="row">
-			<div class="col-lg-2 col-sm:hidden btn btn-default">
-				<a href="#abaqus1">Abaqus简介</a><br/>
-				<a href="#abaqus2">Abaqus接口操作</a><br/>
-				<a href="subModel.html">SubModel技术</a><br/>
-				<a href="example.html">案例</a><br/>
+			<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="abaqus_index.html">Abaqus简介<span class="sr-only">(current)</span></a></li>
+					<li><a href="#abaqus2">Abaqus接口操作</a></li>
+					<li><a href="subModel.html">SubModel技术</a></li>	
+					<li><a href="example.html">案例</a></li>
+				</ul>		
 			</div>
-			<div class="col-lg-10 col-sm-11">
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2 main1">
 				<div><code class="title" id="abaqus1">Abaqus简介</code><br/><br />
 					<p>话不多说，Abaqus是一款有限元模拟软件。</p>
 					<h5 class="label label-default">产品示意图如下：</h5><br /><br />

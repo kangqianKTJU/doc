@@ -13,11 +13,13 @@
 		
 		<!--导入bootstrap-->
 		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
 		
 	</head>
 	<body>
-		<div class="container-fluid row">
-				<nav class="navbar navbar-default navbar-inverse">
+		<div class="container-fluid">
+				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 						<div class="container-fluid">
 						  <!-- Brand and toggle get grouped for better mobile display -->
 						  <div class="navbar-header">
@@ -62,19 +64,20 @@
 						  </div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 				</nav>
+				
+			
+		<div class="row">
+				<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+						<ul class="nav nav-sidebar">
+								<li class="active"><a href="python.html">爬虫简介<span class="sr-only">(current)</span></a></li>
+								<li><a href="urilib.html" >Urilib库讲解</a></li>
+								<li><a href="socket.html" >socket库讲解<a/></li>
+								
 				</div>
 			
-		<div >
-			<div class="col-lg-1 btn btn-default">
-				<a href="python.html" >爬虫简介</a><br />
-				<a href="urilib.html" >Urilib库讲解</a><br />
-				<a href="socket.html" >socket库讲解</a><br />
-			
-			</div>
-			
-			<div class="col-lg-11">
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2 main">
 			<div >
-			<p ><span class="label label-info">爬虫：</span>请求网站并提取数据的自动化程序</p>
+			<p><span class="label label-info">爬虫：</span>请求网站并提取数据的自动化程序</p>
 			<p>
 				<ol>
 					<li><strong>发送请求：</strong>通过Http库向目标站点发起请求，随即发送一个Request,请求可以包含额外的Headers等信息，等待服务器相应</li>
@@ -108,7 +111,7 @@
 	print(response.headers)                                #打印请求头信息
 	print(response.text)                                   #打印请求体内容
 </pre>
-			<img src="../../img/python/example1.JPG">
+			<img class="img-responsive" src="../../img/python/example1.JPG">
 			</div>
 			
 		</div>
@@ -119,5 +122,6 @@
 		</div>
 		
 		</div>
+	</div>
 	</body>
 </html>

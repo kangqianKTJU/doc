@@ -13,11 +13,13 @@
 		
 		<!--导入bootstrap-->
 		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
 		
 	</head>
 	<body>
-		<div class="container-fluid row">
-				<nav class="navbar navbar-default navbar-inverse">
+		<div class="container-fluid">
+				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 						<div class="container-fluid">
 						  <!-- Brand and toggle get grouped for better mobile display -->
 						  <div class="navbar-header">
@@ -62,17 +64,19 @@
 						  </div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 				</nav>
-				</div>
+				
 			
-		<div >
-			<div class="col-lg-1 btn btn-default">
-				<a href="python.html" >爬虫简介</a><br />
-				<a href="urilib.html" >Urilib库讲解</a><br />
-				<a href="socket.html" >socket库讲解</a><br />
+		<div class="row" >
+			<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="python.html">爬虫简介<span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="urilib.html" >Urilib库讲解</a></li>
+					<li><a href="socket.html" >socket库讲解<a/></li>			
+		</div>
 			
 			</div>
 			
-			<div class="col-lg-11">
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2 main">
 			<div >
 			<p ><span class="label label-info">urilib:</span><br/>python内置的一个HTTP请求库</p>
 			<p>
@@ -137,5 +141,6 @@
 		</div>
 		
 		</div>
+	</div>
 	</body>
 </html>

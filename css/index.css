@@ -73,3 +73,26 @@ pre{
 	background-color: #202020;
 	color: white;
 }
+.nav-sidebar{
+    padding-top:51px;
+    margin-right:0px;
+    
+    height: 1000px;
+    
+
+}
+.main{
+    padding-top: 60px;
+}
+
+@media (min-width: 768px) {
+    .sidebar{
+    /* background-color:red; */
+    background-color: #f8f8f8;
+    border: 1px #eeeeee solid;
+    padding-right:0px;
+    position: fixed;
+    overflow-x: hidden;
+
+    }
+}

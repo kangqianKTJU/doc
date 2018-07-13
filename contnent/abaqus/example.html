@@ -16,7 +16,7 @@
 	<body>
 		<div class="container-fluid">
 		<div class="row">
-			<nav class="navbar navbar-default navbar-inverse">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 						<div class="container-fluid">
 						  <!-- Brand and toggle get grouped for better mobile display -->
 						  <div class="navbar-header">
@@ -63,14 +63,17 @@
 			</nav>
 		</div>
 		<div class="row">
-			<div class="col-lg-2 col-sm:hidden btn btn-default">
-				<a href="abaqus_index.html">Abaqus简介</a><br/>
-				<a href="abaqus_index.html">Abaqus接口操作</a><br/>
-				<a href="subModel.html">SubModel技术</a><br/>
-				<a href="#">案例</a><br/>
-			</div>
-			<div class="col-lg-10 col-sm-11">
-				<div><code class="title" id="abaqus1">三维断裂模型</code><br/><br />
+				<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+					<ul class="nav nav-sidebar">
+						<li class="active"><a href="abaqus_index.html">Abaqus简介<span class="sr-only">(current)</span></a></li>
+						<li><a href="abaqus_index.html">Abaqus接口操作</a></li>
+						<li><a href="subModel.html">SubModel技术</a></li>	
+						<li><a href="example.html">案例</a></li>
+					</ul>
+				</div>	
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2 main1">
+				<div ><code class="title" id="abaqus1">三维断裂模型</code><br/><br />
+					<div>
 					<p>本例子是对一个完全三维裂纹模型的环路积分评估的说明，本例子提供了方法的验证（线弹性响应），
 						因为本模型有实际结果可以比较。
 					</p>
@@ -144,7 +147,8 @@
 					<h4 class="label label-info">建模详解</h4><br /><br />
 					<p>打开提取的<code>3DEllipticCrackC3D20R_model.py</code>文件，分析建模的过程。</p>
 					<p class="label label-warning">注意：该文件是提取的！！！是abaqus案例里提供的，不是自己写出来的。这里只是基于对它的分析，然后在GUI中实现而已。</p><br /><br />
-					<div class="row">
+					</div>
+					<div>
 						<div class="col-lg-6 col-xs-12">
 							<pre>'''
 -----------------------------------------------------------------------------
