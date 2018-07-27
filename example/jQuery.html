@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery实例</title>
+    </head>
+    <body>
+
+        <P>Hello</P>
+        <P>Hello</P>
+        <P>Hello</P>
+        <P>Hello</P>
+
+        <p>p1</p>
+        <p id="p2">p2</p>
+        <button>点我修改上面的段落</button>
+        <br/>
+
+        <button id="btn1">单击事件</button>
+        <button id="btn2">双击事件</button>
+
+        <p id="p3">鼠标悬浮我上面我的内容被取消,离开内容恢复</p>
+
+        <button id="btn3">检查绑定事件</button>
+
+        <ul style="width:300px; height:100px; background-color: chartreuse">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+        </ul>
+        
+        <p id="p4">jQuery隐藏与显示</p>
+        <button id="btn4">隐藏</button>
+        <button id="btn5">显示</button>
+        <button id="btn6">显示/隐藏</button>
+
+
+        <div id="div1" style="width:50px;height:80px;background-color: blueviolet;display: none"></div>
+        <div id="div2" style="width:50px;height:80px;background-color: red;display: none"></div>
+        <div id="div3" style="width:50px;height:80px;background-color: black;display: none"></div>
+        <button id="btn7">淡入</button>
+        <button id="btn8">淡出</button>
+        <button id="btn9">淡入/淡出</button>
+        <button id="btn10">fade to 透明度</button>
+
+        <div id="div4" style="width:50px;height:80px;background-color: blueviolet">点我滑动</div>
+        <div id="div6" style="width:50px;height:80px;background-color: darkgray">点我滑出</div>        
+        <div id="div5" style="width:50px;height:80px;background-color: blue;display: none">我是滑动出来的内容</div>
+
+
+        <p id="text">this is my paragraph <a href="kkq123.cn">kkq123.cn</a></p>
+        <button id="btn11">获取上面段落的内容</button>
+        <p id="text1">this is my paragraph <a href="kkq123.cn">kkq123.cn</a></p>
+        <button id="btn12">获取上面段落的html内容</button>
+        
+
+        <p id="text2">this is my paragraph <a href="kkq123.cn">kkq123.cn</a></p>
+        <button id="btn13">修改上面段落的内容</button>
+        
+
+        <script src="../js/jquery-1.11.0.js"></script>
+        <script>
+            //  文档加载完毕事件
+            // $(document).ready(function(){
+            //     alert("文档加载完毕！");
+            // });
+
+
+            // $("p").click(function(){
+            //     $(this).hide();
+            // });
+
+            //  jQuery选择器
+            // $(document).ready(function(){
+            //     $("button").click(function(){
+            //         $("#p2").text("我的内容被修改了");
+            //     });
+            // });
+
+            //  单击事件、双击事件、鼠标悬浮事件
+            // $(document).ready(function(){
+            //     $("#btn1").click(function(){
+            //         alert("我被点击了，发生了点击事件!");
+            //     });
+            //     $("#btn2").dblclick(function(){
+            //         alert("我被双击了，发生了双击事件！")
+            //     });
+            //     $("#p3").mouseenter(function(){
+            //         $(this).text("");
+            //     });
+            //     $("#p3").mouseleave(function(){
+            //         $(this).text("鼠标悬浮我上面我的内容被取消,离开内容恢复");
+            //     })
+            // });
+
+
+            //  绑定事件、解除绑定事件  
+            // function bindDemo(){
+            //     alert("成功绑定单击事件！");
+            // };
+            // $(document).ready(function(){
+            //     $("#btn3").bind("click",bindDemo);
+
+            // });
+
+
+            //  事件之间的冒泡
+            // $(document).ready(function(){
+            //     $("body").bind("click",bodyHandler);
+            //     $("ul").bind("click",divHandler);
+            // }); 
+
+            // function bodyHandler(){
+            //     alert("你点击了body");
+            // };
+            // function divHandler(){
+            //     alert("你点击了ul");
+            //     event.stopPropagation(); 
+            // };
+
+
+            //  自定义事件
+
+            //显示与隐藏
+            // $(document).ready(function(){
+            //     $("#btn4").click(function(){
+            //         $("#p4").hide(1000);
+            //     });
+            //     $("#btn5").click(function(){
+            //         $("#p4").show(1000);
+            //     });
+            //     $("#btn6").click(function(){
+            //         $("#p4").toggle(1000);
+            //     });
+            // });
+
+
+            //淡入淡出
+            // $(document).ready(function(){
+            //     $("#btn7").on("click",function(){
+            //         $("#div1").fadeIn(1000); 
+            //         $("#div2").fadeIn(1000); 
+            //         $("#div3").fadeIn(1000); 
+            //     });
+            //     $("#btn8").on("click",function(){
+            //         $("#div1").fadeOut(1000);
+            //         $("#div2").fadeOut(1000);
+            //         $("#div3").fadeOut(1000);                    
+            //     });
+            //     $("#btn9").on("click",function(){
+            //         $("#div1").toggle(1000);
+            //         $("#div2").toggle(1000);
+            //         $("#div3").toggle(1000);
+            //     });
+            //     $("#btn10").on("click",function(){
+            //         $("#div1").fadeTo(1000,0.1);
+            //         $("#div2").fadeTo(1000,0.3);
+            //         $("#div3").fadeTo(1000,0.7);
+            //     });
+            // });
+             
+                
+            //滑动效果
+            // $(document).ready(function(){
+            //     $("#div4").click(function(){
+            //           $("#div5").slideDown(1000);
+            //     });
+            //     $("#div6").click(function(){
+            //           $("#div5").slideUp(1000);
+            //     });
+            // });
+
+
+            //  捕获
+            //  text获取的是标签内部的内容，html获取的是包括标签的内容
+            // $(document).ready(function(){
+            //     $("#btn11").click(function(){
+            //         alert("text:" + $("#text").text());
+            //     });
+            //     $("#btn12").click(function(){
+            //         alert("text:" + $("#text1").html());
+            // });
+
+
+            //  修改内容
+            // $(document).ready(function(){
+            //     $("#btn13").click(function(){
+            //         $("#text2").text("我的内容被修改了！");
+            //     });
+            // });
+            
+            
+             
+
+        </script>
+    </body>
+</html>

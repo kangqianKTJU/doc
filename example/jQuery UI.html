@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>jQuery UI</title>
+        <script src="../js/jquery-1.11.0.js"></script>
+        <script src="../js/jquery-ui.js"></script>
+        <link type="text/css" href="../js/jquery-ui.min.css" rel="stylesheet"></link>
+
+        <style>
+            .ui-selected{
+                background-color: coral;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="http://kkq123.cn" id="a_btn"> 孔康骞的小网站</a>
+        <div style="width: 100px;height: 100px;border: 2px solid #f00" id="div"></div>
+
+        <div style="width: 100px;height: 100px;border: 2px solid #fe0" id="div1"></div>
+
+        <div style="width: 100px;height: 100px;border: 2px solid #5c6" id="div2"></div>
+
+        <strong>世界上最美丽的人是？</strong>
+        <ul id="select">
+            <li id="right">A.me</li>
+            <li>A.我</li>
+            <li>A.I</li>
+        </ul>
+
+        <ul id="sortable">
+            <li>苹果</li>
+            <li>香蕉</li>
+            <li>梨子</li>
+            <li>橘子</li>
+        </ul>
+
+        <a href="#" id="btn">提交</a>
+    </body>
+    <script>
+        $("#a_btn").button();
+        $(document).ready(function(){
+            $("#div").draggable();  //  可拖放
+
+            $("#div1").droppable();     //  可放置
+
+            $("#div1").on("drop",function(){
+                 alert(event);
+                 $("#div1").text("drop事件");
+            });
+
+            $("#div2").resizable();     //  可调整大小
+
+            $("#btn").button();
+            $("#select").selectable();
+
+            $("#btn").on("click", function(){
+                if($("#right").hasClass("ui-selected")){
+                    alert("you are right!");
+                }
+            });
+
+
+            $("#sortable").sortable();
+        });
+
+           
+
+       
+    </script>
+</html>
