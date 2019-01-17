@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=devide-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no">	
+		<title>孔康骞的小网站</title>
+
+		<link rel="styleSheet" href="../../css/bootstrap.min.css">
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
+	
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="#">JAVA<span class="sr-only">(current)</span></a></li>
+								<li><a href="../matlab/matlab_index.html">MATLAB</a></li>
+								<li><a href="../abaqus/abaqus_index.html">Abaqus</a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="../python/python.html">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+					<ul class="nav nav-sidebar">
+							<li ><a href="index.html">线程与进程 <span class="sr-only">(current)</span></a></li>
+							<li ><a href="Thread.html">Java线程</a></li>
+							<li><a href="ThreadPool.html">Java线程池</a></li>
+                            <li class="active"><a href="#">线程安全</a></li> 
+                            <li><a href="deadlock.html">死锁</a></li> 
+			</div>
+		
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2  main">
+                <code class="title">线程安全</code><br/></br>
+                <p>
+                    线程间的运行时相互独立的，因此当他们再分别操作共享的数据时，就可能存在不同步的问题。
+                    比如A线程操作判断对象T的某个状态量，决定要进行怎样的操作，如果这时A线程失去CPU时间，同时B线程
+                    也来判断T对象的状态，同时修改了T对象的状态。等到A线程恢复执行的时候，此时T的状态已经发生改变，
+                    此时A线程并不会返回再去判断T对象的状态，而是接着上次中断的地方继续执行，而此时T对象的状态可能已经不满足
+                    执行的条件了。这时，两个线程再操作共享数据时就可能存在安全隐患。
+                </p>
+
+                <p>
+                   为了避免这种情况可以使用同步方法：可以使得造成安全隐患的代码同步，一旦某个线程执行到同步代码块或方法，首先要
+                   获取同步锁，完成同步代码快后，需要返还同步锁。另一个线程到来时也要获取同步锁，如果此时锁被其他线程持有，
+                   那么此时该线程就等待同步，即等待之前的线程将锁还回来，获取锁之后才能执行该代码块 。
+                   例如：上面的判断和操作代码就不要分离，可以放在同步代码块中，这样就可以避免判断完成后，条件发生改变，不再满足操作的条件。
+                    
+				<p>
+                    <code>Synchronized</code>关键字可以声明同步代码块或同步方法。
+                    在使用Synchronized关键字声明同步代码块的时候，需要传入一个对象，这个对象可以是任何对象。
+                    <pre>
+                        Object obj = new Object();
+                        Synchronized(obj){
+                            do somnthing here;
+                        }                    </pre>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    将方法声明为同步方法时，可以省略传递的传入的对象。<br/>
+                    对于成员方法，隐形传入的是<code>this</code>
+                    <pre>
+                        void Synchronized fun(){
+                            /*Synchronized(this){
+
+                            };
+                            */
+                            do something here;
+                        }                    </pre>
+                        对于静态方法，隐形传入的是类本身<code>Xxxx.class</code>
+                        <pre>
+                            void Synchronized fun(){
+                                /*Synchronized(MyClass.class){
+    
+                                };
+                                */
+                                do something here;
+                            }                    </pre>
+                </p>
+
+                <hr/>
+                <p><code>Synchronized</code>方法存在问题：当进入同步区域时，如果发生异常，造成同步锁无法归回
+                时，其他线程则无法再继续执行。因此java提供了<code>Lock</code>接口。
+                </p>
+                <p>使用<code>Lock</code>接口时，只需要实列化一个<code>Lock</code>的实现类。调用<code>lock()方法</code>
+                    开启锁，<code>unlcok()</code>方法归还锁，如果中间出现异常，还可以归还锁。
+                    <pre>
+                        private Lock lock = new ReentrantLock();
+                        public void run(){
+                            lock.lock();
+                            try{
+                                do something here;
+                            }catch(Exception ex){
+                                do somnthing with Exception;
+                            }finally{
+                                lock.unlock();
+                            }
+                        }                    </pre>
+                </p>
+            </div>
+            
+			
+		</div>
+		
+		
+        </div>
+        <footer id="foot" class="text-center"> </footer>
+	</body>
+</html>

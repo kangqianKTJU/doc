@@ -18,5 +18,6 @@ function welcomeFun(){
 $(function(){
     $('.carousel').carousel({
         interval: 2000
-      })
-})
+      });
+    
+});

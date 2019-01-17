@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=devide-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no">	
+		<title>孔康骞的小网站</title>
+
+		<link rel="styleSheet" href="../../css/bootstrap.min.css">
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	
+		<link type="text/css" rel="styleSheet"  href="../../css/index.css" />
+	
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+						<div class="container-fluid">
+						  <!-- Brand and toggle get grouped for better mobile display -->
+						  <div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../../index.html">首页</a>
+						  </div>
+					  
+						  <!-- Collect the nav links, forms, and other content for toggling -->
+						  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="#">JAVA<span class="sr-only">(current)</span></a></li>
+								<li><a href="../matlab/matlab_index.html">MATLAB</a></li>
+								<li><a href="../abaqus/abaqus_index.html">Abaqus</a></li>
+							  <li><a href="../bootstrap/bootstrap.html">bootstrap</a></li>
+							  <li><a href="../python/python.html">PYTHON</a></li>
+							  <li><a href="#">javascript</a></li>
+							  <li><a href="../../about/about_us.html">公众号</a></li>
+							  <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查看更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								  <li><a href="#">HTML</a></li>
+								  <li><a href="#">CSS</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="../../about/about_us.html" target="_blank">关于我们</a></li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Join us!!!</a></li>
+								</ul>
+							  </li>
+							</ul>
+							<form class="navbar-form navbar-left pull-right" role="search">
+							  <div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							  </div>
+							  <button type="submit" class="btn btn-default">Submit</button>
+							</form>
+							
+						  </div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 col-sm-2 hidden-xs nav sidebar">
+					<ul class="nav nav-sidebar">
+							<li ><a href="#">线程与进程 <span class="sr-only">(current)</span></a></li>
+							<li><a href="Thread.html">Java线程</a></li>
+							<li><a href="ThreadPool.html">Java线程池</a></li>
+							<li><a href="ThreadSafe.html">线程安全</a></li> 
+							<li class="active"><a href="deadlock.html">死锁</a></li> 
+			</div>
+		
+			<div class="col-lg-10 col-sm-10 col-sm-offset-2 col-lg-offset-2  main">
+                <code class="title">死锁</code><br/></br>
+                <p>
+                    多线程的话，如果存在同步嵌套（锁）的情况，可能会出现死锁的情况。 
+                </p>
+                <p>
+                    死锁是因为锁的嵌套造成的。假设两个线程同时运行，在运行的过程中Thread-0先获取了LockA，然后进入休眠状态，
+                同时Thred-1获取了LockB,也进入了休眠状态。当两个线程都醒来的时候，Thread-0要获取LockB,thrad-1要获取LockA，
+                两个线程进入僵持状态，进入死锁状态。
+                </p>
+				<pre>
+                        public class DeadLock{
+                            public static void main(String[] args) {
+                                LockA lockA = LockA.lock();
+                                LockB lockB = LockB.lock();
+                        
+                                MyThread myThread1 = new MyThread(lockA,lockB);
+                                MyThread myThread2 = new MyThread(lockB,lockA);
+                        
+                        
+                                myThread1.start();
+                                myThread2.start();
+                            }
+                        }
+                        
+                        class MyThread extends Thread{
+                            Object obj1;
+                            Object obj2;
+                            MyThread(Object obj1,Object obj2){
+                                this.obj1 = obj1;
+                                this.obj2 = obj2;
+                            }
+                            public void run(){
+                                synchronized(obj1){
+                                    try{
+                                        Thread.sleep(20);
+                                    }catch(Exception ex){
+                                        System.out.println("err");
+                                    }
+                                    
+                                    System.out.println("I am " + Thread.currentThread().getName() + " ,I have got "+ obj1.getClass().getSimpleName()+ 
+                                                        " Lock,please give me " + obj2.getClass().getSimpleName() + " Lock!, or i will not return " +
+                                                         obj1.getClass().getSimpleName());
+                                    
+                                    synchronized(obj2){
+                                        System.out.println("I hava got "+ obj2.getClass().getSimpleName() +  " Lcok! yeah");
+                        
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // 锁A
+                        class LockA{
+                            private LockA(){};
+                            static final LockA lock(){
+                                return new LockA();
+                            }
+                        }
+
+                        // 锁B
+                        class LockB{
+                            private LockB(){};
+                            static final LockB lock(){
+                                return new LockB();
+                            }
+                        }</pre>
+			</div>
+			
+		</div>
+		
+		
+        </div>
+        <footer id="foot" class="text-center"> </footer>
+	</body>
+</html>
